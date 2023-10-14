@@ -50,6 +50,10 @@ module.exports = {
                 singleton: true,
                 requiredVersion: dependencies["react-dom"],
               },
+              lodash: {
+                  singleton: true,
+                  requiredVersion: dependencies["lodash"],
+              },
             },
         }),
     ],
