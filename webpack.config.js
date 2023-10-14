@@ -38,6 +38,7 @@ module.exports = {
             exposes: {
               "./Header": "./src/components/header",
               "./Footer": "./src/components/footer",
+              "./Clicker": "./src/components/clicker",
             },
             shared: {
               ...dependencies,
