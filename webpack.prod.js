@@ -4,10 +4,7 @@ const { dependencies } = require("./package.json");
 
 module.exports = {
     entry: "./src/entry.js",
-    mode: "development",
-    devServer: {
-        port: 3001,
-    },
+    mode: "production",
     module: {
         rules: [
             {
@@ -24,19 +21,7 @@ module.exports = {
             },
             {
                 test: /\.css$/i,
-                use: [
-                    {
-                        loader: 'style-loader',
-                    },
-                    {
-                        loader: 'css-loader',
-                        options: {
-                            modules: {
-                                localIdentName: '[local]--[hash:base64:5]',
-                            },
-                        },
-                    },
-                ],
+                use: ["style-loader", "css-loader"],
             },
         ],
     },
