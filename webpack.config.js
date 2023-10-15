@@ -6,7 +6,7 @@ module.exports = {
     entry: "./src/entry.js",
     mode: "development",
     devServer: {
-        port: 3001,
+        port: 3005,
     },
     module: {
         rules: [
@@ -45,12 +45,12 @@ module.exports = {
             template: "./public/index.html",
         }),
         new ModuleFederationPlugin({
-            name: "ExampleRemote",
+            name: "ExampleRemoteAuth0",
             filename: "remoteEntry.js",
             exposes: {
-              "./Header": "./src/components/header",
-              "./Footer": "./src/components/footer",
-              "./Clicker": "./src/components/clicker",
+              "./LoginButton": "./src/components/loginButton",
+              "./LogoutButton": "./src/components/logoutButton",
+              "./Profile": "./src/components/profile",
             },
             shared: {
               ...dependencies,
@@ -62,9 +62,17 @@ module.exports = {
                 singleton: true,
                 requiredVersion: dependencies["react-dom"],
               },
+              "react-router-dom": {
+                singleton: true,
+                requiredVersion: dependencies["react-router-dom"],
+              },
               lodash: {
                   singleton: true,
                   requiredVersion: dependencies["lodash"],
+              },
+              "@auth0/auth0-react": {
+                singleton: true,
+                requiredVersion: dependencies["@auth0/auth0-react"],
               },
             },
         }),

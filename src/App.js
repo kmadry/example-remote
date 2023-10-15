@@ -5,7 +5,7 @@ import './MuiClassNameSetup';
 function App() {
   return (
     <div className="App"> 
-      Remote App changes
+      Remote Auth0
     </div>
   );
 }
